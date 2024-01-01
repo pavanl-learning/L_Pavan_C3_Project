@@ -132,5 +132,21 @@ class RestaurantTest {
         // Assert
         assertEquals(expectedTotalCost, actualTotalCost);
     }
+
+    @Test
+    public void calculateTotalOrderCost_when_item_Name_not_found_should_skip_calculate_total_cost() {
+
+        // Arrange
+        List<String> itemNames = new ArrayList<String>();
+        itemNames.add("Dominos");
+
+        int expectedTotalCost = 0;
+
+        // Act
+        var actualTotalCost = restaurant.getTotalCost(itemNames);
+
+        // Assert
+        assertEquals(expectedTotalCost, actualTotalCost);
+    }
     //<<<<<<<<<<<<<<<<<<<<User: DISPLAY THE ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
