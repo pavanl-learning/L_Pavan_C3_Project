@@ -1,7 +1,6 @@
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class RestaurantService {
     private static List<Restaurant> restaurants = new ArrayList<>();
@@ -34,5 +33,9 @@ public class RestaurantService {
 
     public List<Restaurant> getRestaurants() {
         return restaurants;
+    }
+
+    public int calculateTotalOrderCost(List<String> itemNames) {
+        return -1;
     }
 }
