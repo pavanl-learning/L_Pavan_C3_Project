@@ -82,38 +82,4 @@ class RestaurantServiceTest {
         assertEquals(initialNumberOfRestaurants + 1,service.getRestaurants().size());
     }
     //<<<<<<<<<<<<<<<<<<<<ADMIN: ADDING & REMOVING RESTAURANTS>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-    //>>>>>>>>>>>>>>>>>>>>>>User: DISPLAY THE ORDER TOTAL<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    @Test
-    public void calculateTotalOrderCost_when_item_Names_are_passed_should_return_total_cost_of_the_items() {
-
-        // Arrange
-        List<String> itemNames = new ArrayList<String>();
-        itemNames.add("Sweet corn soup");
-        itemNames.add("Vegetable lasagne");
-
-        int expectedTotalCost = 388;
-
-        // Act
-        var actualTotalCost = service.calculateTotalOrderCost(itemNames);
-
-        // Assert
-        assertEquals(expectedTotalCost, actualTotalCost);
-    }
-
-    @Test
-    public void calculateTotalOrderCost_when_no_item_Names_are_passed_should_return_zero_order_cost(){
-
-        // Arrange
-        List<String> itemNames = new ArrayList<String>();
-
-        int expectedTotalCost = 0;
-
-        // Act
-        var actualTotalCost = service.calculateTotalOrderCost(itemNames);
-
-        // Assert
-        assertEquals(expectedTotalCost, actualTotalCost);
-    }
-    //<<<<<<<<<<<<<<<<<<<<User: DISPLAY THE ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>
 }

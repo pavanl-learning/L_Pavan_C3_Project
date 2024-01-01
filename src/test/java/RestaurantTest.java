@@ -7,6 +7,8 @@ import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -97,4 +99,38 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //>>>>>>>>>>>>>>>>>>>>>>User: DISPLAY THE ORDER TOTAL<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void calculateTotalOrderCost_when_item_Names_are_passed_should_return_total_cost_of_the_items() {
+
+        // Arrange
+        List<String> itemNames = new ArrayList<String>();
+        itemNames.add("Sweet corn soup");
+        itemNames.add("Vegetable lasagne");
+
+        int expectedTotalCost = 388;
+
+        // Act
+        var actualTotalCost = restaurant.getTotalCost(itemNames);
+
+        // Assert
+        assertEquals(expectedTotalCost, actualTotalCost);
+    }
+
+    @Test
+    public void calculateTotalOrderCost_when_no_item_Names_are_passed_should_return_zero_order_cost(){
+
+        // Arrange
+        List<String> itemNames = new ArrayList<String>();
+
+        int expectedTotalCost = 0;
+
+        // Act
+        var actualTotalCost = restaurant.getTotalCost(itemNames);
+
+        // Assert
+        assertEquals(expectedTotalCost, actualTotalCost);
+    }
+    //<<<<<<<<<<<<<<<<<<<<User: DISPLAY THE ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
